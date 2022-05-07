@@ -32,13 +32,15 @@ public class OrderingMapsTest {
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
+        driver.get("http://localhost:9999");
 
     }
 
     @AfterEach
-    public void close() {
-        driver.quit();
-        driver = null;
+    void teardown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
     @Test
