@@ -26,7 +26,7 @@ public class OrderingMapsTest {
     @Test
     void shouldSuccessfully() {
 
-        Configuration.holdBrowserOpen = false;
+        Configuration.holdBrowserOpen = true;
 
 
         $x("//*[@name=\"name\"]").setValue("Антон");
