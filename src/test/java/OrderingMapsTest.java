@@ -17,26 +17,16 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class OrderingMapsTest {
 
-    private WebDriver driver;
-
     @BeforeEach
     void setUp2() {
         open("http://localhost:9999");
-        driver = new ChromeDriver();
 
-    }
-
-    @AfterEach
-    void teardown() {
-        if (driver != null) {
-            driver.quit();
-        }
     }
 
     @Test
     void shouldSuccessfully() {
 
-        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = false;
 
 
         $x("//*[@name=\"name\"]").setValue("Антон");
