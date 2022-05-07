@@ -1,4 +1,5 @@
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.impl.SelenideElementDescriber;
 import org.junit.jupiter.api.AfterEach;
@@ -18,20 +19,10 @@ public class OrderingMapsTest {
 
     private WebDriver driver;
 
-    @BeforeAll
-    public static void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:/Users/Toshik/IdeaProjects/Testing-Web-interfaces-Ordering-maps/driver/chromedriver.exe");
-    }
-
     @BeforeEach
     void setUp2() {
-
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--disable-dev-shm-usage");
-//        options.addArguments("--no-sandbox");
-//        options.addArguments("--headless");
+        open("http://localhost:9999");
         driver = new ChromeDriver();
-
 
     }
 
@@ -45,7 +36,9 @@ public class OrderingMapsTest {
     @Test
     void shouldSuccessfully() {
 
-        open("http://localhost:9999");
+        Configuration.holdBrowserOpen = true;
+
+
         $x("//*[@name=\"name\"]").setValue("Антон");
 //        $("[name=\"name\"]").setValue("Антон");
         $x("//*[@name=\"phone\"]").setValue("+79060000000");
