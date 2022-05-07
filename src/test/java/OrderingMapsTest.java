@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -49,6 +50,6 @@ public class OrderingMapsTest {
 //        $("[name=\"phone\"]").setValue("+79060000000");
         $x("//*[@data-test-id=\"agreement\"]").click();
         $x("//*[@type=\"button\"]").click();
-        $(withText("Ваша заявка успешно отправлена!"));
+        $(withText("Ваша заявка успешно отправлена!")).shouldHave(visible);
     }
 }
