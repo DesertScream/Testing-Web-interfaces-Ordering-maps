@@ -26,11 +26,11 @@ public class OrderingMapsTest {
     @BeforeEach
     void setUp2() {
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--disable-dev-shm-usage");
+//        options.addArguments("--no-sandbox");
+//        options.addArguments("--headless");
+        driver = new ChromeDriver();
 
 
     }
@@ -44,6 +44,7 @@ public class OrderingMapsTest {
 
     @Test
     void shouldSuccessfully() {
+
         open("http://localhost:9999");
         $x("//*[@name=\"name\"]").setValue("Антон");
 //        $("[name=\"name\"]").setValue("Антон");
