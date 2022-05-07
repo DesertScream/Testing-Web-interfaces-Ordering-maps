@@ -7,8 +7,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class OrderingMapsTest {
@@ -22,7 +24,14 @@ public class OrderingMapsTest {
 
     @BeforeEach
     void setUp2() {
+
         driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
+
     }
 
     @AfterEach
@@ -34,12 +43,12 @@ public class OrderingMapsTest {
     @Test
     void shouldSuccessfully() {
         open("http://localhost:9999");
-        SelenideElement form = $x("//form");
-//        SelenideElement form = $("[data-test-id=callback-form]");
-        form.$("[data-test-id=name] input").setValue("Антон");
-        form.$("[data-test-id=phone] input").setValue("+79060000000");
-        form.$("[data-test-id=agreement]").click();
-        form.$("[data-test-id=submit]").click();
-        $(".alert-success").shouldHave(exactText("Ваша заявка успешно отправлена!"));
+        $x("//*[@name=\"name\"]").setValue("Антон");
+//        $("[name=\"name\"]").setValue("Антон");
+        $x("//*[@name=\"phone\"]").setValue("+79060000000");
+//        $("[name=\"phone\"]").setValue("+79060000000");
+        $x("//*[@data-test-id=\"agreement\"]").click();
+        $x("//*[@type=\"button\"]").click();
+        $(withText("Ваша заявка успешно отправлена!"));
     }
 }
