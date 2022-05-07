@@ -20,7 +20,7 @@ public class OrderingMapsTest {
 
     @BeforeAll
     public static void setUp() {
-        System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Toshik\\IdeaProjects\\Testing-Web-interfaces-Ordering-maps\\driver\\chromedriver.exe");
     }
 
     @BeforeEach
