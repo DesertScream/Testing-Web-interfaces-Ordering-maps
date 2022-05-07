@@ -22,7 +22,6 @@ public class OrderingMapsTest {
     @BeforeAll
     public static void setUp() {
         WebDriverManager.chromedriver().setup();
-        System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
     }
 
     @BeforeEach
