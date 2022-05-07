@@ -28,7 +28,6 @@ public class OrderingMapsTest {
 
         Configuration.holdBrowserOpen = true;
 
-
         $x("//*[@name=\"name\"]").setValue("Антон");
 //        $("[name=\"name\"]").setValue("Антон");
         $x("//*[@name=\"phone\"]").setValue("+79060000000");
